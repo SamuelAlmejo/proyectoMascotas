@@ -1,0 +1,21 @@
+const url ='https://api.thedogapi.com/v1/images/search';
+const fetchOptions = {
+   headers:{
+      'x-api-key':'bddb2947-1d5d-498c-b010-2d6f8d9e7683'
+   } 
+
+};
+
+ function buscarImg(){
+ fetch(url,fetchOptions)
+ .then(response => response.json())
+ .then(data =>{
+    //let elemento = document.getElementById('elemt')
+    //elemento.innerHTML= `<p>${data.url}</p>`;
+   // elemento.innerHTML= `<p>${data.order}</p>`;
+    //<img src='${data.breeds.}'></img>
+    console.log(data)
+    document.getElementById("imagen").src=data[0].url;
+ })
+ .catch(err=>console.log(err))
+ }
