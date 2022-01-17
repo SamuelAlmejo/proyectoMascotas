@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principal del proyecto</title>
+    <script type="javascript"></script>
+</head>
+<body bgcolor="yellow">
+    <h2>Proyecto Samuel de Jesús Almejo Bautista</h2>
+    <h2>Desarrollo web</h2>
+
+        <h3>Ingrese los datos de su mascota:</h3>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Nombre "/>
+        <br><br>
+        <label for="raza">Raza:</label>
+        <input type="text" id="raza" placeholder="Raza"/>
+        <br><br>
+        <label for="especie">Especie:</label>
+        <input type="text" id="especie" placeholder="Especie"/>
+        <br><br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad"/>       
+        <br><br>   
+        <input type="button" onclick="funcionClick()" value="Guardar"/>
+
+
+    <p id="datos">Datos de la mascota ingresada</p>
+    <input type="button" onclick="datosGuardados()" value="Visualizar"/>
+    <br><br>
+    <button>
+        <a href="datosPOO.html">Siguiente</a>
+    </button>
+    <script>
+        function funcionClick(){
+            var sinNumeros=/^[a-zA-Z]+$/;
+            var edadNega=/^[1-9]*$/;
+            const ls=localStorage;
+            let nombreM= document.getElementById("nombre").value;
+            let razaM=document.getElementById("raza").value;
+            let especieM=document.getElementById("especie").value;
+            let edadM=document.getElementById("edad").value;
+  
+            if(sinNumeros.test(document.getElementById("nombre").value) && sinNumeros.test(document.getElementById("raza").value) && sinNumeros.test(document.getElementById("especie").value) && edadNega.test(document.getElementById("edad").value)){               
+                ls.setItem("nombre",nombreM);
+                ls.setItem("raza",razaM);
+                ls.setItem("especie",especieM);
+                ls.setItem("edad",edadM);
+                alert("Registrado con éxito");
+            }else{
+                alert("Ingrese bien los datos");
+            }
+      
+        }
+        function datosGuardados() {
+            if ((localStorage.nombre != undefined) && (localStorage.raza != undefined)) {
+                document.getElementById("datos").innerHTML= "Nombre: " + localStorage.nombre + " Raza: " + localStorage.raza + " Especie: "+ localStorage.especie +" Edad: "+ localStorage.edad;
+            } else {
+                document.getElementById("datos").innerHTML = "No se ha introducido los datos solicitados de la mascota";
+            }
+        }
+    </script>
+</body>
+</html>
