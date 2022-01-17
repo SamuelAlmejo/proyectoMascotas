@@ -1,0 +1,56 @@
+class mascota{
+    constructor(nombre,raza,especie,edad){
+        this.nombre=nombre;
+        this.raza=raza;
+        this.especie=especie;
+        this.edad=edad;
+    }
+
+    //Métodos getter y setters de la mascota
+    get getNombre(){
+
+        return this.nombre;
+    }
+    set setNombre(nombre){
+
+        this.nombre = nombre;
+    }
+
+    get Raza(){
+
+        return this.raza;
+    }
+    set Raza(raza){
+
+        this.raza = raza;
+    }
+
+    get getEspecie(){
+
+        return this.especie;
+    }
+    set setEspecie(especie){
+
+        this.especie = especie;
+    }
+
+    get getEdad(){
+
+        return this.edad;
+    }
+    set setEdad(edad){
+
+        this.edad = edad;
+    }
+
+
+   
+}
+
+const nuevaMascota = new mascota();
+nuevaMascota.setNombre= "Toby";
+nuevaMascota.Raza="Pitbull";
+nuevaMascota.setEspecie="Perro";
+nuevaMascota.setEdad=4;
+
+document.getElementById("datos").innerHTML = "Mascota: " +nuevaMascota.getNombre+" Raza de la mascota: "+nuevaMascota.Raza+" Especie: "+nuevaMascota.getEspecie+" Edad: "+nuevaMascota.getEdad;
